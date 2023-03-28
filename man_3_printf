@@ -1,88 +1,87 @@
-.\" _printf man page /usr/share/man/man3/printf.3
-.\"
-.TH _PRINTF 3 "15-03-2021" "0.1" "_printf"
-
+./" This is _printf manpage
+.TH man 3 "17 May 2020" "1.0" "_printf man page"
 .SH NAME
-_printf
-
-.B_printf - format and print data. Part of a project at Holberton School.
-
+.B _printf
+- format and data.
 .SH SYNOPSIS
-Part of a project at holberton school.
-This project mimics the printf found in in C.
-
 _printf FORMAT [ARGUMENT]...
-.ss
-
 .SH DESCRIPTION
+Print ARGUMENT(s) according to FORMAT:
 
-_printf() the function produces output according to format string that \
-specifies how subsequent arguments are written and converted to stdout, the \
-standard output stream.
+\\"     double quote.
 
-_printf() will loop through the format for a conversion specifier (%). If found\
-, it will access an array of structures and match the corresponding character \
-with the given function. The specified function will return a string-converted \
-version of the result and immediately passed into the buffer.
+\\\\     backslash.
 
-.SH CONVERSION SPECIFIERS
+\\n     new line.
 
-.IP %s
-prints a string.
-.IP %c
-prints a character.
-.IP %d
-prints an integer. Same as %i.
-.IP %i
-See %d.
-.IP %u
-Prints unsigned int.
-.IP %o
-Converts unsigned int to octal.
-.IP %x
-Converts unsigned int to hexadecimal (lowercase)
-.IP %X
-Converts unsigned int to hexadecimal (uppercase)
-.IP %r
-Prints reverse of intput string
-.IP %R
-Converts string to rot13
+\\r     carriage return.
 
-.SH OPTIONS
+\\t     horizontal tab.
 
-Pending
+%%     a single %.
 
-.SH FORMAT
-controls the output as in C printf.  Interpreted sequences are:
+.SH CONVERSION CHARACTERS
+.B The conversion specifiers and their meanings are:
+.IP -b 
+The unsigned int argument is converted to binary.
 
-       \n     new line
+.IP -d,i
+The int argument is converted to signed decimal notation.
 
-       \t     tab
+.IP -c
+The int argument is converted to an unsigned char, and the resulting character is written.
 
-       %%     a single %
 
-.SS Example
-.RS
-_printf("Hello %s", "world");
-Prints string "Hello world"
+.IP -o,u,x,X
+The unsigned int argument is converted to ( ) notation:
 
-_printf("They call me mad, but one day when history of France is written, they \
-will mark my name well ...%s ", "Sidney Applebaum")
+unsigned octal: (o).
 
-.RE
+unsigned decimal: (u).
 
-.SS Return Value
-Upon success, these main function will return the number of characters printed.
+unsigned hexadecimal: (x and X).
 
-.SH "SEE ALSO"
-.SH ""
+.IP -s
+Characters from the array are written up to (but not including) a terminating null byte ('\0').
+	
+.IP -S 
+Characters from the array are written up to (but not including) a terminating null byte ('\0').
 
-.BR printf(1)
+Not include characters (0 < ASCII value < 32 or >= 127), are printed \x, , followed by the ASCII code value in hexadecimal (upper case - always 2 characters).
 
-.P
+.IP -p
+The void * pointer argument is printed in hexadecimal (as if by %#x or %#lx).
+
+.SH EXAMPLES
+
+.IP -print a string.
+_printf("This is a string");
+_printf("%s\n", "I am a string too!");
+
+.IP print char.
+_printf("Character:[%c]\n", 'H');
+
+.IP -print integuer.
+_printf("%d, %i\n", 2, 5);
+
+.SH SEE ALSO
+
+.I printf(1), printf(3).
 
 .SH BUGS
-Memory issues are known to frequent this function. User beware.
 
-.SH "AUTHOR"
-Beteab Admassu and Yitbarek yakob
+No known bugs.
+
+.SH AUTHOR
+
+David Orozco & Jose Parrales.
+
+.SH COPYRIGHT
+
+Copyright © 2020 Holberton School B.
+
+
+Copyright © SS64.com 1999-2020.
+
+
+Copyright Â© 2010 Free Software Foundation, Inc. License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
