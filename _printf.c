@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _printf - printf function
+ * _printf - printf function to produce formated output
  * @format: const char pointer
  * Return: b_len
  */
