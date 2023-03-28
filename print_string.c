@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
  * print_string - Print string
@@ -17,4 +17,3 @@ int print_string(va_list list)
 
 	return (p_len);
 }
-
